@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class Trabajos
 {
-    public Trabajo[] listTrabajo; 
+    public Trabajo[] listTrabajo;
+
+    public string NombreTrabajo;
     
     private Color blue =   new Color(0.2253026f, 0.6446108f, 0.78301890f, 1f);
     private Color green =  new Color(0.1000715f, 0.7641510f, 0.08290318f, 1f);
@@ -42,7 +44,7 @@ public class Trabajos
       this.objetos+=t.rewObjetos;
       this.exce=(c+bbdd+html+1)/2;
     }
-    
+
     public void ResetTrabajos(){
         c=0;
         bbdd=0;

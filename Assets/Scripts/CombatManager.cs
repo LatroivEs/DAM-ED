@@ -216,8 +216,8 @@ public class CombatManager : MonoBehaviour
                     break;
                 case FaseStatus.SELECT_EQUIPO:
                     CargarDeck();
-                    Almacen.CargarListaEntera();   
-                    LogPanel.Write("Selecciona el equipo que deseas llevar."
+                    MazoController.TestMazo();
+                    LogPanel.Write("Selecciona el equipo que deseas llevar.");
                     this.faseStatus=FaseStatus.DESCARTANDO_MANO;
                     SetCanvasActive(CanvasTrabajo.TRABAJOS);
                     break;
@@ -318,7 +318,7 @@ public class CombatManager : MonoBehaviour
 
     }
 
-    //TO DO
+    
     private void CargarDeck(){
         MazoController.CrearNuevoMazo();
         List<Card> newDeck= Almacen.GenerarMazo();

@@ -18,6 +18,9 @@ public class PlayerUI: MonoBehaviour{
     public TMP_Text labelHTML;
 
     void Awake(){
+        
+    }
+    void Start(){
         JugadorInicial();
     }
 
@@ -67,9 +70,9 @@ public class PlayerUI: MonoBehaviour{
 
 
     public void JugadorInicial(){
-        this.c=2;
-        this.bbdd=2;
-        this.html=2;
+        this.c=5;
+        this.bbdd=5;
+        this.html=5;
         this.excelencia=0;
         this.vuelta=0;
         PintarPlayer();

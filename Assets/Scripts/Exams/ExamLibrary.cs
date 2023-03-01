@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-public class ExamLibrary(){
+public class ExamLibrary{
+
     private static string[] ListaPreguntasC = new string[]{
         "¿Que es un tipo basico?",
         "¿Como se hereda una clase?",
@@ -27,24 +28,24 @@ public class ExamLibrary(){
         "¿Como establecerias una Clave Foranea?",
         "¿Diferencia entre BBDD relacionales y No-relacionales?",
         "¿Como podemos comprobar la integridad de un dato dentro de nuestra BBDD?",
-        "¿Que es una Vista, para que nos sirve?",
+        "¿Que es una Vista, para que nos sirve?"
     };
 
     private static string[] ListaPreguntasHTML = new string[]{
-        "¿Que es un H1?";
-        "¿Como podemos cambiar el color del texto?";
-        "¿Que es SASS?";
-        "¿Que significa responsive?";
-        "¿Que es una mediaquery?";
-        "¿Se puede insertar texto desde CSS?";
-        "¿Diferencias entre GRID y FLEX?";
-        "¿Como harias una tabla?";
-        "¿Que es un gradiant?";
-        "¿Como insertarias un enlace a otra pagina?";
-        "¿Diferencias entre POST y GET en un formulario?";
+        "¿Que es un H1?",
+        "¿Como podemos cambiar el color del texto?",
+        "¿Que es SASS?",
+        "¿Que significa responsive?",
+        "¿Que es una mediaquery?",
+        "¿Se puede insertar texto desde CSS?",
+        "¿Diferencias entre GRID y FLEX?",
+        "¿Como harias una tabla?",
+        "¿Que es un gradiant?",
+        "¿Como insertarias un enlace a otra pagina?",
+        "¿Diferencias entre POST y GET en un formulario?"
     };
 
-    private static int[][] Lvl= int[][]{
+    private static int[][] Lvl= new int[3][]{
         new int[]{1,1,1,1,2},
         new int[]{2,2,2,2,3},
         new int[]{2,2,3,3,4}
@@ -52,28 +53,29 @@ public class ExamLibrary(){
 
     public static Exam CreateNewExam(int lvl){
         Exam exam = new Exam();
-        for(int =0; i<3;i++){
+        for(int i =0; i<5;i++){
             exam.AddPregunta(CreateNewPregunta(lvl));
-        }        
+        }       
+        return exam; 
     }
 
     public static Pregunta CreateNewPregunta(int lvl){
         int[] valor = new int[]{0,0,0};
-
+        string preg ="";       
         int indice = UnityEngine.Random.Range(0,3);
         valor[indice]= Lvl[lvl][UnityEngine.Random.Range(0,Lvl[lvl].Length)];
         switch(indice){
             case 0:
-                string preg = ListaPreguntasC[UnityEngine.Random.Range(0,ListaPreguntasC.Length)];
+                preg = ListaPreguntasC[UnityEngine.Random.Range(0,ListaPreguntasC.Length)];
                 break;
             case 1:
-                string preg = ListaPreguntasBBDD[UnityEngine.Random.Range(0,ListaPreguntasBBDD.Length)];
+                preg = ListaPreguntasBBDD[UnityEngine.Random.Range(0,ListaPreguntasBBDD.Length)];
                 break;
             case 2:
-                string preg = ListaPreguntasHTML[UnityEngine.Random.Range(0,ListaPreguntasHTML.Length)];
+                preg = ListaPreguntasHTML[UnityEngine.Random.Range(0,ListaPreguntasHTML.Length)];
                 break;
         }
-        Pregunta pr = new Pregunta(valor[0],valor[1],valor[2], preg);
+        Pregunta pr = new Pregunta(valor[0],valor[1],valor[2], preg, indice);
         return pr;
     }
 

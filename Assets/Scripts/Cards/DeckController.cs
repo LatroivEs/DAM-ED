@@ -36,7 +36,7 @@ public class DeckController : MonoBehaviour{
     public int[] RobarCartas() {
         int[] resultadoMano = new int[]{0,0,0};
         Mano = MazoClase.NewMano();
-        Debug.Log(Mano.Count);
+        //Debug.Log(Mano.Count);
         for(int i = 0 ; i < tamMano; i++){
             ListaCartas[i].GetComponent<CardController>().CargarCarta(Mano[i]);
             ListaCartas[i].GetComponent<CardController>().SacarCarta();
@@ -46,6 +46,24 @@ public class DeckController : MonoBehaviour{
             resultadoMano[2]+=Mano[i].html;
         }
         return resultadoMano;
+    }
+
+    public void TestMazo(){
+        string Cartas ="Cartas Mazo";
+        foreach(Card c in MazoClase.Mazo){
+            Cartas += " "+c.name;
+        }
+            Debug.Log(Cartas);
+        Cartas ="Descarte Mazo";
+        foreach(Card c in MazoClase.Descarte){
+            Cartas += " "+c.name;
+        }
+            Debug.Log(Cartas);
+        Cartas ="CEnJuego Mazo";
+        foreach(Card c in MazoClase.Enjuego){
+            Cartas += " "+c.name;
+        }
+            Debug.Log(Cartas);
     }
 
     public void DescartarMano(){

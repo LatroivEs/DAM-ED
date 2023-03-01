@@ -60,7 +60,7 @@ public class Expositor : MonoBehaviour, IDeseleccionable{
         if(EquipoAlmacenado !=null){
             CardXLViewer.CargarExpositor(this);
             Background.color = SelectedBackgroundColor;
-            Debug.Log("Seleccionado "+EquipoAlmacenado.Name);
+           // Debug.Log("Seleccionado "+EquipoAlmacenado.Name);
         }
     }
 
@@ -68,7 +68,7 @@ public class Expositor : MonoBehaviour, IDeseleccionable{
         if(EquipoAlmacenado !=null){
             Debug.Log("p "+storage.__numListaActiva);
             storage.EquiparItem(EquipoAlmacenado); 
-            Debug.Log("Equipado "+EquipoAlmacenado.Name);
+         //   Debug.Log("Equipado "+EquipoAlmacenado.Name);
         }
     }
 
@@ -84,7 +84,7 @@ public class Expositor : MonoBehaviour, IDeseleccionable{
         }
         else if (clicked > 1 && (Time.time - clicktime < clickdelay))
         {
-            Debug.Log("DobleClick");
+           // Debug.Log("DobleClick");
             clicked = 0;
             clicktime = 0;
             Revisar();

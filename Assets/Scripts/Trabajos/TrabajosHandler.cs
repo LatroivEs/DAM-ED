@@ -26,6 +26,7 @@ public class TrabajosHandler : MonoBehaviour{
     public Button ButtonAuxiliar;
     public Image background;
     
+    public TMP_Text Nombre;
     public TMP_Text tPC;
     public TMP_Text tPBBDD;
     public TMP_Text tPHTML;
@@ -80,10 +81,12 @@ public class TrabajosHandler : MonoBehaviour{
             trabajoPrincipal.AddTrabajo(new Trabajo(lvl));
         }
         trabajoAuxiliar.AddTrabajo(new Trabajo(lvl));
+        trabajoPrincipal.NombreTrabajo= TrabajoNameLibrary.GenerarNombre();
         PintarTrabajos();
     }
 
     public void PintarTrabajos(){
+        Nombre.text = trabajoPrincipal.NombreTrabajo;
         tPC.text = ""+trabajoPrincipal.c;
         tPBBDD.text = ""+trabajoPrincipal.bbdd;
         tPHTML.text = ""+trabajoPrincipal.html;
